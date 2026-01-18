@@ -1,25 +1,25 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('Check Node version'){
-            steps{
+    stages {
+        stage('Check Node version') {
+            steps {
                 sh 'node --version'
             }
         }
-        stage('installing all Depenceis'){
-            steps{
+        stage('Install Dependencies') {
+            steps {
                 sh 'npm install'
             }
         }
-        stage('building the react app'){
-            steps{
+        stage('Build React App') {
+            steps {
                 sh 'npm run build'
             }
         }
     }
-    post{
-        always{
-            echo "Pipeline Completed"
+    post {
+        always {
+            echo 'Pipeline Completed'
         }
     }
 }
